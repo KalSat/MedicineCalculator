@@ -29,7 +29,7 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.css$/,
-            loader: "style!css"
+            loader: "style-loader!css-loader"
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader?limit=10000&name=/img/[name].[hash:7].[ext]'

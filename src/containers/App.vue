@@ -1,7 +1,17 @@
 <template>
     <div id="app">
-        <img src="../assets/logo.png">
-        <hello></hello>
+        <div class="fixed-bar">
+            <mu-appbar title="Douban Movie">
+                <mu-icon-button icon='menu' slot="left"/>
+                <mu-icon-menu icon="more_vert" slot="right">
+                    <mu-menu-item title="About"/>
+                </mu-icon-menu>
+            </mu-appbar>
+        </div>
+        <div class="view">
+            <img src="../assets/logo.png">
+            <hello></hello>
+        </div>
     </div>
 </template>
 
@@ -17,7 +27,7 @@
 </script>
 
 <style>
-    #app {
+    .view {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
