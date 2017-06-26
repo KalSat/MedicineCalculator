@@ -4,13 +4,13 @@
 
 import Vue from "vue";
 import MuseUI from "muse-ui";
-import App from "./containers/App.vue";
+import Home from "./containers/Home.vue";
 import "muse-ui/dist/muse-ui.css";
 import "muse-ui/dist/theme-carbon.css";
 
-Vue.use(MuseUI)
+Vue.use(MuseUI);
 
 new Vue({
     el: '#root',
-    render: h => h(App)
+    render: h => h(Home)
 });
