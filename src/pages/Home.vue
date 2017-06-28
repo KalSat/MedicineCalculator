@@ -2,14 +2,16 @@
     <div id="page-root">
         <mu-appbar id="app-bar" title="Medicine Calculator">
             <mu-icon-button icon='menu' slot="left"/>
-            <mu-icon-button icon="search" slot="right"/>
+            <mu-icon-button icon="more_vert" slot="right"/>
         </mu-appbar>
         <div class="content">
             <img id="img-logo" src="../assets/logo.png">
             <hello></hello>
         </div>
         <div id="bottom-bar">
-            <mu-float-button icon="add" class="float-button"/>
+            <router-link to="/add-medicine">
+                <mu-float-button icon="add" class="float-button"/>
+            </router-link>
             <mu-float-button icon="done" class="float-button"/>
         </div>
     </div>
@@ -59,6 +61,8 @@
         name: 'app',
         components: {
             Hello
+        },
+        methods: {
         }
     }
 </script>

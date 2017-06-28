@@ -15,8 +15,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json', '.css', '.vue'],
         alias: {
-            'Vue': './node_modules/vue/dist/vue.js',
-            'vue-strap': './node_modules/vue-strap/dist/vue-strap.min.js'
+            'vue$': 'vue/dist/vue.js',
+            'vue-router$': 'vue-router/dist/vue-router.common.js'
         }
     },
     module: {

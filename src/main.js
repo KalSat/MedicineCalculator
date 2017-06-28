@@ -4,13 +4,29 @@
 
 import Vue from "vue";
 import MuseUI from "muse-ui";
-import Home from "./containers/Home.vue";
+import VueRouter from "vue-router";
+import Home from "./pages/Home.vue";
+import AddMedicine from "./pages/AddMedicine.vue";
 import "muse-ui/dist/muse-ui.css";
 import "muse-ui/dist/theme-carbon.css";
 
 Vue.use(MuseUI);
+Vue.use(VueRouter);
 
 new Vue({
     el: '#root',
-    render: h => h(Home)
+    template: '<router-view/>',
+    router: new VueRouter({
+        routes: [{
+            path: '/home',
+            component: Home,
+        }, {
+            name: 'add-medicine',
+            path: '/add-medicine',
+            component: AddMedicine
+        }, {
+            path: '*',
+            redirect: '/home'
+        }]
+    }),
 });
