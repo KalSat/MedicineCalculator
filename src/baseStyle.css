@@ -1,0 +1,27 @@
+.app-bar {
+    position: fixed;
+}
+
+.content {
+    max-width: 74em;
+    padding-top: 3.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bottom-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    max-width: 64em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.float-button {
+    bottom: 1.5em;
+}

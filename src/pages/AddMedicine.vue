@@ -1,8 +1,16 @@
+<!--
+    Created by chengbiao on 17/6/28.
+-->
+
+<style>
+
+</style>
+
 <template>
-    <div id="page-root">
-        <mu-appbar id="app-bar" title="Add Medicine">
+    <div class="page-root">
+        <mu-appbar class="app-bar" title="Add Medicine">
             <mu-icon-button icon='arrow_back' slot="left" v-on:click="back"/>
-            <mu-icon-button icon='send' slot="right"/>
+            <mu-icon-button icon='send' slot="right" v-on:click="commit"/>
         </mu-appbar>
         <div class="content">
             <img id="img-logo" src="../assets/logo.png">
@@ -10,32 +18,21 @@
     </div>
 </template>
 
-<style>
-    #app-bar {
-        position: fixed;
-    }
-
-    .content {
-        text-align: center;
-
-        background-color: #66ccff;
-
-        max-width: 74em;
-        padding-top: 3.5em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
-
 <script>
+    import {ADD_MEDICINE} from '../main'
 
     export default {
-        name: 'app',
+        name: 'add-medicine',
         components: {},
         methods: {
             back() {
                 this.$router.back()
-            }
-        }
+            },
+            commit() {
+                let medicine;
+                // TODO add params
+                this.$store.commit(ADD_MEDICINE, medicine);
+            },
+        },
     }
 </script>
