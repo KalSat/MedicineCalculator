@@ -3,7 +3,12 @@
 -->
 
 <style>
-
+    .add-medicine-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 <template>
@@ -13,7 +18,12 @@
             <mu-icon-button icon='send' slot="right" v-on:click="commit"/>
         </mu-appbar>
         <div class="content">
-            <img id="img-logo" src="../assets/logo.png">
+            <form class="add-medicine-form">
+                <mu-auto-complete label="名称" labelFloat v-on:input="handleInput" v-bind:dataSource="dataSource"
+                                  v-on:change="handleChange"/>
+                <mu-text-field label="数量" labelFloat type="number" v-model="count"/>
+                <mu-text-field label="价格" labelFloat type="number" v-model="price"/>
+            </form>
         </div>
     </div>
 </template>
@@ -24,14 +34,34 @@
     export default {
         name: 'add-medicine',
         components: {},
+        data() {
+            return {
+                dataSource: [],
+                name: '',
+                count: null,
+                price: null,
+            }
+        },
         methods: {
             back() {
                 this.$router.back()
             },
             commit() {
                 let medicine;
-                // TODO add params
+                medicine.name = this.name;
+                medicine.count = this.count;
+                medicine.price = this.price;
                 this.$store.commit(ADD_MEDICINE, medicine);
+            },
+            handleInput(val) {
+                this.dataSource = [
+                    val,
+                    val + val,
+                    val + val + val
+                ]
+            },
+            handleChange(val) {
+                console.log(`you choose ${val}`)
             },
         },
     }
