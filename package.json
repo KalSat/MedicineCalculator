@@ -19,6 +19,7 @@
     "babel-runtime": "^6.23.0",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.28.0",
     "muse-ui": "^2.0.3",
     "open-browser-webpack-plugin": "^0.0.5",
@@ -34,5 +35,9 @@
     "vuex": "^2.3.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
   }
 }
