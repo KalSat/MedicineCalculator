@@ -16,36 +16,36 @@ Vue.use(MuseUI);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 
-export const ADD_MEDICINE = 'addMedicine';
-export const DELETE_MEDICINE = 'deleteMedicine';
+export const ADD_MEDICINE = "addMedicine";
+export const DELETE_MEDICINE = "deleteMedicine";
 
 new Vue({
-    el: '#root',
-    template: '<router-view/>',
+    el: "#root",
+    template: "<router-view/>",
     router: new VueRouter({
         routes: [{
-            path: '/home',
+            path: "/home",
             component: Home,
         }, {
-            name: 'add-medicine',
-            path: '/add-medicine',
+            name: "add-medicine",
+            path: "/add-medicine",
             component: AddMedicine
         }, {
-            path: '*',
-            redirect: '/home'
+            path: "*",
+            redirect: "/home"
         }]
     }),
     store: new Vuex.Store({
-        store: {
+        state: {
             medicineList: [],
         },
         mutations: {
             [ADD_MEDICINE](state, payload) {
-                let medicine;
-                medicine.name = payload.name;
-                medicine.num = payload.num;
-                medicine.price = payload.price;
-                state.medicineList.push(medicine);
+                state.medicineList.push({
+                    name: payload.name,
+                    count: payload.count,
+                    price: payload.price
+                });
             },
             [DELETE_MEDICINE](state, index) {
                 state.medicineList.splice(index, 1);
