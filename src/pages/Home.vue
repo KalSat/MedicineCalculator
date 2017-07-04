@@ -38,18 +38,18 @@
 </template>
 
 <script>
-    import Hello from "../components/Hello"
+    import Hello from '../components/Hello'
 
     export default {
-        name: "home",
+        name: 'home',
         components: {
             Hello
         },
         computed: {
             medicineList() {
-                return this.$store.state.medicineList;
-            },
+                return this.$store.state.medicineList
+            }
         },
-        methods: {},
+        methods: {}
     }
 </script>

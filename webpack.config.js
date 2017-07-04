@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-let path = require('path');
-let webpack = require('webpack');
+let path = require('path')
+let webpack = require('webpack')
 
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin');
+let HtmlWebpackPlugin = require('html-webpack-plugin')
+let OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin')
 
 module.exports = {
     entry: path.resolve(__dirname, './src/main.js'),
     output: {
         path: path.resolve(__dirname, './build'),
-        filename: 'build.js',
+        filename: 'build.js'
     },
     resolve: {
         extensions: ['.js', '.json', '.css', '.vue'],
@@ -21,6 +21,14 @@ module.exports = {
     },
     module: {
         loaders: [{
+            test: /\.(js|vue)$/,
+            loader: 'eslint-loader',
+            enforce: 'pre',
+            include: ['./src', './test'],
+            options: {
+                formatter: require('eslint-friendly-formatter')
+            }
+        }, {
             test: /\.vue$/,
             loader: 'vue-loader'
         }, {
@@ -29,7 +37,7 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.css$/,
-            loader: "style-loader!css-loader"
+            loader: 'style-loader!css-loader'
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader?limit=10000&name=img.[name].[hash:7].[ext]'
@@ -37,8 +45,8 @@ module.exports = {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
             loader: 'url-loader?limit=10000&name=fonts.[name].[hash:7].[ext]'
         }]
-    },
-};
+    }
+}
 
 if (process.env.NODE_ENV === 'production') {
     module.exports.plugins = [
@@ -60,14 +68,14 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.optimize.OccurrenceOrderPlugin()
     ]
 } else {
-    module.exports.devtool = 'eval-source-map'; // 配置生成Source Maps，选择合适的选项
+    module.exports.devtool = 'eval-source-map' // 配置生成Source Maps，选择合适的选项
 
     module.exports.devServer = {
-        contentBase: "./build", // 本地服务器所加载的页面所在的目录
+        contentBase: './build', // 本地服务器所加载的页面所在的目录
         stats: {colors: true},
         historyApiFallback: true, // 不跳转
         inline: true // 实时刷新
-    };
+    }
 
     module.exports.plugins = [
         new webpack.DefinePlugin({

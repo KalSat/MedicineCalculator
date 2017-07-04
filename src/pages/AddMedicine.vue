@@ -29,17 +29,17 @@
 </template>
 
 <script>
-    import {ADD_MEDICINE} from "../main"
+    import { ADD_MEDICINE } from '../main'
 
     export default {
-        name: "add-medicine",
+        name: 'add-medicine',
         components: {},
         data() {
             return {
                 dataSource: [],
-                name: "",
+                name: '',
                 count: null,
-                price: null,
+                price: null
             }
         },
         methods: {
@@ -47,12 +47,12 @@
                 this.$router.back()
             },
             commit() {
-                let medicine = {};
-                medicine.neme = this.name;
-                medicine.count = this.count;
-                medicine.price = this.price;
-                this.$store.commit(ADD_MEDICINE, medicine);
-                this.$router.back();
+                let medicine = {}
+                medicine.neme = this.name
+                medicine.count = this.count
+                medicine.price = this.price
+                this.$store.commit(ADD_MEDICINE, medicine)
+                this.$router.back()
             },
             handleInput(val) {
                 this.dataSource = [
@@ -63,7 +63,7 @@
             },
             handleChange(val) {
                 console.log(`you choose ${val}`)
-            },
-        },
+            }
+        }
     }
 </script>
