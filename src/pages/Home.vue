@@ -37,11 +37,5 @@
     }
 </style>
 
-<style>
-    @import "../../node_modules/muse-ui/dist/muse-ui.css";
-    @import "../../node_modules/muse-ui/dist/theme-carbon.css";
-    @import "../baseStyle.css";
-</style>
-
 <script lang="ts" src="./Home.ts">
 </script>

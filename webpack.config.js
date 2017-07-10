@@ -28,7 +28,16 @@ module.exports = {
             include: ['./src', './test'],
         }, {
             test: /\.css$/,
-            loader: 'style-loader!css-loader',
+            use: [
+                'vue-style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        minimize: false,
+                        sourceMap: true
+                    }
+                }
+            ]
         }, {
             test: /\.tsx?$/,
             loader: 'ts-loader',
