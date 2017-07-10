@@ -7,7 +7,8 @@ import Component from 'vue-class-component';
 import {ADD_MEDICINE} from '../main';
 
 @Component
-export default class AddMedicine extends Vue {
+export default //noinspection JSUnusedGlobalSymbols
+class AddMedicine extends Vue {
 
     // data
     private dataSource: string[] = [];
@@ -20,20 +21,17 @@ export default class AddMedicine extends Vue {
         this.$router.back();
     }
 
+    //noinspection JSUnusedLocalSymbols
     private commit() {
-        const medicine: any = [];
-        medicine.name = name;
-        medicine.count = this.count;
-        medicine.price = this.price;
-
         this.$store.commit(ADD_MEDICINE, {
-            name: this.name,
-            count: this.count,
-            price: this.price,
+            name: this.name as string,
+            count: this.count as number,
+            price: this.price as number,
         });
         this.$router.back();
     }
 
+    //noinspection JSUnusedLocalSymbols
     private handleInput(val: string) {
         this.dataSource = [
             val,
@@ -42,6 +40,7 @@ export default class AddMedicine extends Vue {
         ];
     }
 
+    //noinspection JSUnusedLocalSymbols,JSMethodCanBeStatic
     private handleChange(val: string) {
         console.log(`you choose ${val}`);
     }

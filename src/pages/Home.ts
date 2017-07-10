@@ -12,7 +12,8 @@ import {Medicine} from '../model/Medicine';
         Hello,
     },
 })
-export default class Home extends Vue {
+export default //noinspection JSUnusedGlobalSymbols
+class Home extends Vue {
 
     // computed
     get medicineList(): Medicine[] {

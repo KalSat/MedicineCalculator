@@ -21,7 +21,8 @@
         // Pending fix for shorthand property names.
         "object-literal-sort-keys": false,
         "no-console": false,
-        "no-trailing-whitespace": false
+        "no-trailing-whitespace": false,
+        "member-ordering": false
     },
     "rulesDirectory": []
 }
