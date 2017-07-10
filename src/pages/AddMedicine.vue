@@ -2,15 +2,6 @@
     Created by chengbiao on 17/6/28.
 -->
 
-<style scoped>
-    .add-medicine-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-
 <template>
     <div class="page-root">
         <mu-appbar class="app-bar" title="Add Medicine">
@@ -28,42 +19,14 @@
     </div>
 </template>
 
-<script>
-    import { ADD_MEDICINE } from '../main'
-
-    export default {
-        name: 'add-medicine',
-        components: {},
-        data() {
-            return {
-                dataSource: [],
-                name: '',
-                count: null,
-                price: null
-            }
-        },
-        methods: {
-            back() {
-                this.$router.back()
-            },
-            commit() {
-                let medicine = {}
-                medicine.neme = this.name
-                medicine.count = this.count
-                medicine.price = this.price
-                this.$store.commit(ADD_MEDICINE, medicine)
-                this.$router.back()
-            },
-            handleInput(val) {
-                this.dataSource = [
-                    val,
-                    val + val,
-                    val + val + val
-                ]
-            },
-            handleChange(val) {
-                console.log(`you choose ${val}`)
-            }
-        }
+<style scoped>
+    .add-medicine-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+</style>
+
+<script lang="ts" src="./AddMedicine.ts">
 </script>

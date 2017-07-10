@@ -2,17 +2,6 @@
     Created by chengbiao on 17/6/19.
 -->
 
-<style scoped>
-    .content {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-
-        background-color: #66ccff;
-    }
-</style>
-
 <template>
     <div class="page-root">
         <mu-appbar class="app-bar" title="Medicine Calculator">
@@ -37,19 +26,22 @@
     </div>
 </template>
 
-<script>
-    import Hello from '../components/Hello'
+<style scoped>
+    .content {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
 
-    export default {
-        name: 'home',
-        components: {
-            Hello
-        },
-        computed: {
-            medicineList() {
-                return this.$store.state.medicineList
-            }
-        },
-        methods: {}
+        background-color: #66ccff;
     }
+</style>
+
+<style>
+    @import "../../node_modules/muse-ui/dist/muse-ui.css";
+    @import "../../node_modules/muse-ui/dist/theme-carbon.css";
+    @import "../baseStyle.css";
+</style>
+
+<script lang="ts" src="./Home.ts">
 </script>

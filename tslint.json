@@ -1,0 +1,27 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "indent": [
+            true,
+            "spaces",
+            4
+        ],
+        "interface-name": [
+            "never-prefix"
+        ],
+        "arrow-parens": false,
+        // Pending fix for shorthand property names.
+        "object-literal-sort-keys": false,
+        "no-console": false,
+        "no-trailing-whitespace": false
+    },
+    "rulesDirectory": []
+}

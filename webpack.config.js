@@ -7,13 +7,13 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 let OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin')
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/main.js'),
+    entry: path.resolve(__dirname, './src/main.ts'),
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'build.js'
     },
     resolve: {
-        extensions: ['.js', '.json', '.css', '.vue'],
+        extensions: ['.ts', '.js', '.json', '.css', '.vue'],
         alias: {
             'vue$': 'vue/dist/vue.js',
             'vue-router$': 'vue-router/dist/vue-router.common.js'
@@ -21,23 +21,28 @@ module.exports = {
     },
     module: {
         loaders: [{
-            test: /\.(js|vue)$/,
-            loader: 'eslint-loader',
+            test: /\.(tsx?|vue)$/,
+            loader: 'tslint-loader',
             enforce: 'pre',
+            exclude: /node_modules/,
             include: ['./src', './test'],
+        }, {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader',
+        }, {
+            test: /\.tsx?$/,
+            loader: 'ts-loader',
+            exclude: /node_modules/,
             options: {
-                formatter: require('eslint-friendly-formatter')
+                appendTsSuffixTo: [/\.vue$/],
             }
         }, {
             test: /\.vue$/,
-            loader: 'vue-loader'
-        }, {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/
-        }, {
-            test: /\.css$/,
-            loader: 'style-loader!css-loader'
+            loader: 'vue-loader',
+            exclude: /node_modules/,
+            options: {
+                esModule: true
+            }
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader?limit=10000&name=img.[name].[hash:7].[ext]'
@@ -61,6 +66,7 @@ if (process.env.NODE_ENV === 'production') {
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
             compress: {
                 warnings: false
             }
