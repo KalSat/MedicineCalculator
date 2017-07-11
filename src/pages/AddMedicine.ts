@@ -23,6 +23,11 @@ class AddMedicine extends Vue {
 
     //noinspection JSUnusedLocalSymbols
     private commit() {
+        if (this.count == null || this.price == null) {
+            return;
+        }
+
+        this.price = parseFloat(this.price.toFixed(2));
         this.$store.commit(ADD_MEDICINE, {
             name: this.name as string,
             count: this.count as number,

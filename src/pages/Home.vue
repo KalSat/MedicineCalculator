@@ -11,11 +11,16 @@
 
                 <div v-for="(medicine, i) in medicineList" :key="medicine.name">
                     <mu-card class="medicine-list-item">
-                        <p>{{i + 1}}. {{medicine.name}}</p>
-                        <p>{{medicine.price}} 元/克</p>
-                        <p>{{medicine.count}} 克</p>
+                        <p>{{ i + 1 }}. {{ medicine.name }}</p>
+                        <p>{{ medicine.price.toFixed(2) }} 元/克</p>
+                        <p>{{ medicine.count }} 克</p>
                     </mu-card>
                     <div class="medicine-list-divider" v-show="i < medicineList.length - 1"></div>
+                </div>
+                <mu-divider class="total-price-divider"></mu-divider>
+                <div class="total-price-group">
+                    <p>总价：</p>
+                    <p>{{ totalPrice.toFixed(2) }} 元</p>
                 </div>
 
             </template>
@@ -31,12 +36,15 @@
             <router-link to="/add-medicine">
                 <mu-float-button icon="add" class="float-button"></mu-float-button>
             </router-link>
-            <mu-float-button icon="done" class="float-button"></mu-float-button>
         </div>
     </div>
 </template>
 
 <style scoped>
+    p {
+        display: inline;
+    }
+
     .content {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -55,6 +63,19 @@
     .medicine-list-divider {
         width: inherit;
         height: 0.25em;
+    }
+
+    .total-price-divider {
+        margin-top: 1em;
+    }
+
+    .total-price-group {
+        display: flex;
+        flex-direction: row;
+        padding-left: 1em;
+        padding-right: 1em;
+        justify-content: space-between;
+        align-items: center;
     }
 </style>
 

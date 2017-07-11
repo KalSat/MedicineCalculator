@@ -7,8 +7,7 @@ import Component from 'vue-class-component';
 import {Medicine} from '../model/Medicine';
 
 @Component({
-    components: {
-    },
+    components: {},
 })
 export default //noinspection JSUnusedGlobalSymbols
 class Home extends Vue {
@@ -18,4 +17,14 @@ class Home extends Vue {
         return this.$store.state.medicineList;
     }
 
+    get totalPrice(): number {
+        let total = 0;
+        const list: Medicine[] = this.medicineList;
+        if (list != null) {
+            for (const medicine of list) {
+                total += medicine.price * medicine.count;
+            }
+        }
+        return total;
+    }
 }

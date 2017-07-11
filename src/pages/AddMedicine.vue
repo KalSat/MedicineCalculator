@@ -7,9 +7,9 @@
         <div class="content">
             <form class="add-medicine-form">
                 <mu-auto-complete label="名称" labelFloat v-on:input="handleInput" v-bind:dataSource="dataSource"
-                                  v-on:change="handleChange" v-model="name"></mu-auto-complete>
-                <mu-text-field label="数量" labelFloat type="number" v-model="count"></mu-text-field>
-                <mu-text-field label="价格" labelFloat type="number" v-model="price"></mu-text-field>
+                                  v-on:change="handleChange" v-model.trim="name"></mu-auto-complete>
+                <mu-text-field label="数量" labelFloat type="number" v-model.number="count"></mu-text-field>
+                <mu-text-field label="价格" labelFloat type="number" v-model.number="price"></mu-text-field>
             </form>
         </div>
     </div>
