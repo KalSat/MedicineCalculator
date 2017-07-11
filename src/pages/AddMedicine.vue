@@ -1,7 +1,3 @@
-<!--
-    Created by chengbiao on 17/6/28.
--->
-
 <template>
     <div class="page-root">
         <mu-appbar class="app-bar" title="Add Medicine">

@@ -2,9 +2,13 @@
     position: fixed;
 }
 
+/*noinspection CssOptimizeSimilarProperties*/
 .content {
     max-width: 74em;
-    padding-top: 5em;
+    padding-top: 5.5em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
     margin-left: auto;
     margin-right: auto;
 }

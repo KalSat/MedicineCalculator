@@ -4,12 +4,10 @@
 
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import Hello from '../components/Hello.vue';
 import {Medicine} from '../model/Medicine';
 
 @Component({
     components: {
-        Hello,
     },
 })
 export default //noinspection JSUnusedGlobalSymbols
