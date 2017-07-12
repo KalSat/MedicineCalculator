@@ -22,7 +22,7 @@ class Home extends Vue {
         const list: Medicine[] = this.medicineList;
         if (list != null) {
             for (const medicine of list) {
-                total += medicine.price * medicine.count;
+                total += medicine.price * medicine.count / 10;
             }
         }
         return total;

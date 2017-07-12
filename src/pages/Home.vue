@@ -14,7 +14,7 @@
                 <div v-for="(medicine, i) in medicineList" :key="medicine.name">
                     <mu-card class="medicine-list-item">
                         <p>{{ i + 1 }}. {{ medicine.name }}</p>
-                        <p>{{ medicine.price.toFixed(2) }} 元/克</p>
+                        <p>{{ medicine.price.toFixed(2) }} 元/10克</p>
                         <p>{{ medicine.count }} 克</p>
                     </mu-card>
                     <div class="medicine-list-divider" v-show="i < medicineList.length - 1"></div>

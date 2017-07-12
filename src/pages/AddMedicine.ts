@@ -5,16 +5,20 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import {ADD_MEDICINE} from '../main';
+import medicineTable from '../medicineTable.json';
+import {Medicine} from '../model/Medicine';
 
 @Component
 export default //noinspection JSUnusedGlobalSymbols
 class AddMedicine extends Vue {
 
     // data
-    private dataSource: string[] = [];
     private name: string = '';
     private count: number | null = null;
     private price: number | null = null;
+    private medicineList: Medicine[] = medicineTable;
+    private medicineNameList: string[] = [];
+    private medicinePriceList: number[] = [];
 
     // method
     private back() {
@@ -38,15 +42,20 @@ class AddMedicine extends Vue {
 
     //noinspection JSUnusedLocalSymbols
     private handleInput(val: string) {
-        this.dataSource = [
-            val,
-            val + val,
-            val + val + val,
-        ];
+        this.medicineNameList.splice(0, this.medicineNameList.length);
+        this.medicinePriceList.splice(0, this.medicinePriceList.length);
+
+        for (const medicine of this.medicineList) {
+            if (medicine.name.indexOf(val) !== -1) {
+                this.medicineNameList.push(medicine.name);
+                this.medicinePriceList.push(medicine.price);
+            }
+        }
     }
 
     //noinspection JSUnusedLocalSymbols,JSMethodCanBeStatic
     private handleChange(val: string) {
-        console.log(`you choose ${val}`);
+        const index = this.medicineNameList.indexOf(val);
+        this.price = this.medicinePriceList[index];
     }
 }
