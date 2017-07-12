@@ -1,13 +1,16 @@
 <template>
     <div class="page-root">
-        <mu-appbar class="app-bar" title="Add Medicine">
-            <mu-icon-button icon="arrow_back" slot="left" v-on:click="back"></mu-icon-button>
-            <mu-icon-button icon="send" slot="right" v-on:click="commit"></mu-icon-button>
-        </mu-appbar>
+        <header>
+            <mu-appbar title="Add Medicine">
+                <mu-icon-button icon="arrow_back" slot="left" @click="back"></mu-icon-button>
+                <mu-icon-button icon="send" slot="right" @click="commit"></mu-icon-button>
+            </mu-appbar>
+        </header>
+
         <div class="content">
             <form class="add-medicine-form">
-                <mu-auto-complete label="名称" labelFloat v-on:input="handleInput" v-bind:dataSource="dataSource"
-                                  v-on:change="handleChange" v-model.trim="name"></mu-auto-complete>
+                <mu-auto-complete label="名称" labelFloat @input="handleInput" :dataSource="dataSource"
+                                  @change="handleChange" v-model.trim="name"></mu-auto-complete>
                 <mu-text-field label="数量" labelFloat type="number" v-model.number="count"></mu-text-field>
                 <mu-text-field label="价格" labelFloat type="number" v-model.number="price"></mu-text-field>
             </form>

@@ -1,9 +1,11 @@
 <template>
     <div class="page-root">
-        <mu-appbar class="app-bar" title="Medicine Calculator">
-            <mu-icon-button icon="menu" slot="left"></mu-icon-button>
-            <mu-icon-button icon="more_vert" slot="right"></mu-icon-button>
-        </mu-appbar>
+        <header>
+            <mu-appbar title="Medicine Calculator">
+                <mu-icon-button icon="menu" slot="left"></mu-icon-button>
+                <mu-icon-button icon="print" slot="right"></mu-icon-button>
+            </mu-appbar>
+        </header>
 
         <div class="content">
 
@@ -26,17 +28,17 @@
             </template>
             <template v-else>
 
-                <p>按“+”添加药材，按“√”计算总价</p>
+                <p>请按“+”添加药材</p>
 
             </template>
 
         </div>
 
-        <div class="bottom-bar">
+        <footer>
             <router-link to="/add-medicine">
                 <mu-float-button icon="add" class="float-button"></mu-float-button>
             </router-link>
-        </div>
+        </footer>
     </div>
 </template>
 

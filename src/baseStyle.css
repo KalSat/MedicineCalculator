@@ -1,5 +1,20 @@
-.app-bar {
+header {
     position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 64em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /*noinspection CssOptimizeSimilarProperties*/
@@ -11,19 +26,6 @@
     padding-right: 1em;
     margin-left: auto;
     margin-right: auto;
-}
-
-.bottom-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    margin: auto;
-    max-width: 64em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 }
 
 .float-button {
