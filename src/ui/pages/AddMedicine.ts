@@ -4,23 +4,22 @@
 
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import DataStore from '../../data/DataStore';
+import {Medicine} from '../../data/entities/Medicine';
 import {ADD_MEDICINE} from '../main';
-import medicineTable from '../medicineTable.json';
-import {Medicine} from '../model/Medicine';
 
 @Component
-export default //noinspection JSUnusedGlobalSymbols
-class AddMedicine extends Vue {
+export default class AddMedicine extends Vue {
 
     // data
     private name: string = '';
     private count: number | null = null;
     private price: number | null = null;
-    private medicineList: Medicine[] = medicineTable;
     private medicineNameList: string[] = [];
-    private medicinePriceList: number[] = [];
+    private filteredMedicineList: Medicine[] = [];
 
     // method
+    //noinspection JSUnusedLocalSymbols
     private back() {
         this.$router.back();
     }
@@ -42,20 +41,17 @@ class AddMedicine extends Vue {
 
     //noinspection JSUnusedLocalSymbols
     private handleInput(val: string) {
-        this.medicineNameList.splice(0, this.medicineNameList.length);
-        this.medicinePriceList.splice(0, this.medicinePriceList.length);
+        this.filteredMedicineList = DataStore.findMedicineByName(val);
 
-        for (const medicine of this.medicineList) {
-            if (medicine.name.indexOf(val) !== -1) {
-                this.medicineNameList.push(medicine.name);
-                this.medicinePriceList.push(medicine.price);
-            }
+        this.medicineNameList.splice(0, this.medicineNameList.length);
+        for (const medicine of this.filteredMedicineList) {
+            this.medicineNameList.push(medicine.name);
         }
     }
 
     //noinspection JSUnusedLocalSymbols,JSMethodCanBeStatic
     private handleChange(val: string) {
         const index = this.medicineNameList.indexOf(val);
-        this.price = this.medicinePriceList[index];
+        this.price = this.filteredMedicineList[index].price;
     }
 }

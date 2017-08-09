@@ -11,7 +11,7 @@ let FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 let CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/main.ts'),
+    entry: path.resolve(__dirname, './src/ui/main.ts'),
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'build.js'

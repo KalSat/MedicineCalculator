@@ -4,13 +4,12 @@
 
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import {Medicine} from '../model/Medicine';
+import {Medicine} from '../../data/entities/Medicine';
 
 @Component({
     components: {},
 })
-export default //noinspection JSUnusedGlobalSymbols
-class Home extends Vue {
+export default class Home extends Vue {
 
     // computed
     get medicineList(): Medicine[] {

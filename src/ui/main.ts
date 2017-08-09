@@ -8,8 +8,8 @@ import 'muse-ui/dist/theme-carbon.css';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
+import {Medicine} from '../data/entities/Medicine';
 import './baseStyle.css';
-import {Medicine} from './model/Medicine';
 import AddMedicine from './pages/AddMedicine.vue';
 import Home from './pages/Home.vue';
 
