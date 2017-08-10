@@ -40,18 +40,24 @@ export default class AddMedicine extends Vue {
     }
 
     //noinspection JSUnusedLocalSymbols
-    private handleInput(val: string) {
-        this.filteredMedicineList = DataStore.findMedicineByName(val);
+    private handleInput(input: string) {
+        DataStore.findMedicineByName(input)
+            .then((list) => {
+                this.filteredMedicineList = list;
 
-        this.medicineNameList.splice(0, this.medicineNameList.length);
-        for (const medicine of this.filteredMedicineList) {
-            this.medicineNameList.push(medicine.name);
-        }
+                this.medicineNameList.splice(0, this.medicineNameList.length);
+                for (const medicine of this.filteredMedicineList) {
+                    this.medicineNameList.push(medicine.name);
+                }
+            })
+            .catch((error) => {
+                console.log('find medicine failed:' + error)
+            })
     }
 
     //noinspection JSUnusedLocalSymbols,JSMethodCanBeStatic
-    private handleChange(val: string) {
-        const index = this.medicineNameList.indexOf(val);
+    private handleChange(text: string) {
+        const index = this.medicineNameList.indexOf(text);
         this.price = this.filteredMedicineList[index].price;
     }
 }

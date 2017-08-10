@@ -16,15 +16,21 @@ export default class DataStore {
         this.medicineRepo = new MedicineRepository();
     }
 
-    public static findMedicineByName(name: string): Medicine[] {
+    public static findMedicineByName(name: string): Promise<Medicine[]> {
         const medicineList = DataStore.self.medicineRepo.getMedicineList();
-        const resultList: Medicine[] = [];
-        for (const medicine of medicineList) {
-            if (medicine.name.includes(name)) {
-                resultList.push(medicine);
+
+        return new Promise<Medicine[]>((resolve, reject) => {
+            if (name == null) {
+                reject("illegal argument");
             }
-        }
-        return resultList;
+            const resultList: Medicine[] = [];
+            for (const medicine of medicineList) {
+                if (medicine.name.includes(name)) {
+                    resultList.push(medicine);
+                }
+            }
+            resolve(resultList);
+        })
     }
 
 }
